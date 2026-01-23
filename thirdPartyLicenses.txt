@@ -1,0 +1,131 @@
+=========================
+ Third-Party Licenses
+=========================
+
+This project uses several open-source libraries.
+Below are their respective licenses and copyright notices.
+
+------------------------------------------------------------
+Library: GLFW
+Website: https://www.glfw.org/
+License: zlib/libpng License
+------------------------------------------------------------
+Copyright (c) 2002-2024 Camilla Löwy <elmindreda@glfw.org>
+
+This software is provided 'as-is', without any express or implied warranty.
+In no event will the authors be held liable for any damages arising
+from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute
+it freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented;
+   you must not claim that you wrote the original software.
+2. Altered source versions must be plainly marked as such,
+   and must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
+
+------------------------------------------------------------
+Library: GLAD
+Website: https://glad.dav1d.de/
+License: MIT License
+------------------------------------------------------------
+Copyright (c) 2013-2024 David Herberth
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+------------------------------------------------------------
+Library: GLM (OpenGL Mathematics)
+Website: https://github.com/g-truc/glm
+License: MIT License
+------------------------------------------------------------
+Copyright (c) 2005-2024 G-Truc Creation
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+------------------------------------------------------------
+Library: stb_image.h
+Website: https://github.com/nothings/stb
+License: Public Domain or MIT License
+------------------------------------------------------------
+Written by Sean Barrett, 2017–2024
+
+This software is provided 'as-is', without any express or implied warranty.
+In no event will the authors be held liable for any damages arising
+from the use of this software.
+
+You may use this software in any way you like — public domain or, at your option,
+under the MIT license reproduced below:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+------------------------------------------------------------
+Library: simdjson
+Website: https://github.com/simdjson/simdjson
+License: Apache License 2.0
+------------------------------------------------------------
+Copyright 2019 The simdjson Authors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+------------------------------------------------------------
+Library: miniaudio
+Website: https://miniaud.io/
+License: MIT No Attribution / Public Domain (Unlicense)
+------------------------------------------------------------
+Written by David Reid. You may choose either license below:
+
+Option 1: MIT No Attribution
+-------------------------------------
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do so,
+all without attribution to the original author.
+
+Option 2: Unlicense
+-------------------------------------
+This is free and unencumbered software released into the public domain.
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute
+this software, either in source code form or as a compiled binary, for any purpose,
+commercial or non-commercial, and by any means.
+
+------------------------------------------------------------
+
+End of third-party licenses.
