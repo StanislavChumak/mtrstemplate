@@ -1,4 +1,4 @@
-#include "Engine.h"
+#include "Engine.hpp"
 
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
@@ -7,61 +7,42 @@
 #define INCLUDE_CORE_COMPONENTS
 #define INCLUDE_SPRITE
 #define INCLUDE_ANIMATION
-#define INCLUDE_SOUNDS
-#define INCLUDE_LOCATION_SOUNDS
 
-#include "presets.h"
+#include "presets.hpp"
 
-
-#include "components/ui/Cursor.h"
-#include "systems/transform/CursorFollowersSystem.h"
+#include "comp/ui/CursorFollower.hpp"
+#include "sys/transform/CursorFollowersSystem.hpp"
 
 #define BLOCK_SIZE 32
 #define SCALE 3
 #define GAME_WIDTH 8 * BLOCK_SIZE
 #define GAME_HEIGTH 6 * BLOCK_SIZE
-
-class SoundCursorSystem
+    
+int main(int argc, char *argv[])
 {
-public:
-    static void update(ECSWorld &world, const double &delta);
-};
-
-int main(int argc, char **argv)
-{
-    engine::Core engine;
-
-    engine::Config config;
-    config.pixelSize = glm::vec2(GAME_WIDTH, GAME_HEIGTH);
-    config.nameWindow = "Engine";
-    config.pixelScale = SCALE;
-    config.executablePath = *argv;
-    config.displayCursor = false;
+    mtrs::engine::Config config;
+    config.size_in_pixels = glm::vec2(GAME_WIDTH, GAME_HEIGTH);
+    config.name_window = "Engine";
+    config.start_pixel_scale = SCALE;
+    config.executable_path = *argv;
+    config.display_cursor = false;
+    config.scenes_path = "res/";
+    config.resurce_path = "res/";
+    
+    mtrs::engine::Core engine(config);
 
     REGISTER_CORE_COMPONENTS(engine);
     REGISTER_SPRITE(engine);
     REGISTER_ANIMATION(engine);
-    REGISTER_SOUNDS(engine);
-    REGISTER_LOCATION_SOUNDS(engine);
     
-    
-    REGISTER_COMPONENT(CursorFollower);
-    engine.systems.registerUpdete<CursorFollowersSystem>(SystemPriority::INPUT);
-    engine.systems.registerAlwaysUpdate<CursorFollowersSystem>();
-    
-    engine.systems.registerUpdete<SoundCursorSystem>(SystemPriority::AUDIO);
-    engine.systems.registerAlwaysUpdate<SoundCursorSystem>();
-    
-    engine.init(config);
+    engine.systems.register_update<mtrs::sys::CursorFollowersSystem>();
+    engine.systems.register_always_update<mtrs::sys::CursorFollowersSystem>();
 
-    engine.loadJsonComponent("res/components.json");
-    
-    engine.world.getSingleComponent<Listener>()->target = engine.world.getNamedEntity("center");
-    engine.world.getSingleComponent<Camera>()->target = engine.world.getNamedEntity("center");
+    engine.world.load_scene("scene", engine.resources);
 
-    engine.predUpate();
+    engine.pre_update();
     double lastTime = glfwGetTime(), currentTime, delta;
-    while (!engine.isCloseWindow())
+    while (!engine.is_close_window())
     {
         currentTime = glfwGetTime();
         delta = currentTime - lastTime;
