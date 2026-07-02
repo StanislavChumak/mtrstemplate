@@ -2,3 +2,7 @@
 	path = engine
 	url = https://github.com/StanislavChumak/MattressEngine
 	branch = develop
+[submodule "asset_compiler"]
+	path = asset_compiler
+	url = https://github.com/StanislavChumak/mtrsc
+	branch = develop

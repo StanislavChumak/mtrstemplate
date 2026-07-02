@@ -15,7 +15,7 @@ src/main.cpp
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
-    $<$<CONFIG:Debug>:FLAG_DEBUG>
+    $<$<CONFIG:Release>:FLAG_RELEASE>
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -27,11 +27,14 @@ target_include_directories(${PROJECT_NAME}
 add_subdirectory(engine)
 target_link_libraries(${PROJECT_NAME} PUBLIC mattres)
 
+add_subdirectory(asset_compiler mtrsc)
+add_custom_target(run_mtrsc ALL
+    COMMAND $<TARGET_FILE:mtrsc> ${PROJECT_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/bin/res
+    DEPENDS mtrsc
+    COMMENT "Building mtrsc (if needed) and generating runtime files"
+)
+add_dependencies(${PROJECT_NAME} run_mtrsc)
+
 set_target_properties(${PROJECT_NAME}
     PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/
 )
-
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E copy_directory
-	${CMAKE_SOURCE_DIR}/res 
-    $<TARGET_FILE_DIR:${PROJECT_NAME}>/res)
