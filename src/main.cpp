@@ -8,43 +8,18 @@
 #define INCLUDE_SPRITE
 #define INCLUDE_ANIMATION
 #define INCLUDE_SOUNDS
+#define INCLUDE_SPRITE_MAP
 
 #include "presets.hpp"
 
 #include "comp/ui/CursorFollower.hpp"
-#include "sys/transform/CursorFollowersSystem.hpp"
-
-#include "comp/rendering/SpriteMap.hpp"
-#include "sys/rendering/SpriteMapRenderSystem.hpp"
-#include "sys/rendering/MapAnimatorSystem.hpp"
+#include "sys/ui/CursorFollowersSystem.hpp"
 
 #define BLOCK_SIZE 32
 #define SCALE 3
 #define GAME_WIDTH 8 * BLOCK_SIZE
 #define GAME_HEIGTH 6 * BLOCK_SIZE
 
-#include "sys/System.hpp"
-namespace mtrs::sys
-{
-class TestSoundSystem : public System<TestSoundSystem>
-{
-public:
-    inline static double _delta = 0.f;
-    static void update_imp(comp::ECSWorld &world, const double &delta)
-    {
-        for(auto [entity, folower, player] : world.view<comp::CursorFollower, comp::SoundPlayer>())
-        {
-            _delta += delta;
-            if(_delta > 1.f)
-            {
-                _delta -= 1.f;
-                player->sound->start();
-            }
-        }
-    }
-    static constexpr int get_prioritet_imp() { return SystemPriority::AUDIO; };
-};
-}
     
 int main(int argc, char *argv[])
 {
@@ -62,18 +37,10 @@ int main(int argc, char *argv[])
     REGISTER_CORE_COMPONENTS(engine);
     REGISTER_SPRITE(engine);
     REGISTER_ANIMATION(engine);
+    REGISTER_SPRITE_MAP(engine);
     
     engine.systems.register_update<mtrs::sys::CursorFollowersSystem>();
     engine.systems.register_always_update<mtrs::sys::CursorFollowersSystem>();
-
-    engine.systems.register_update<mtrs::sys::SpriteMapRenderSystem>();
-    engine.systems.register_always_update<mtrs::sys::SpriteMapRenderSystem>();
-
-    engine.systems.register_update<mtrs::sys::MapAnimatorSystem>();
-    engine.systems.register_always_update<mtrs::sys::MapAnimatorSystem>();
-
-    engine.systems.register_update<mtrs::sys::TestSoundSystem>();
-    engine.systems.register_always_update<mtrs::sys::TestSoundSystem>();
 
     engine.world.load_scene("scene", engine.resources);
 

@@ -29,6 +29,12 @@
 				"stream" : false,
 				"position" : false
 			}
+		],
+		"scripts" : [
+			{
+				"name" : "test",
+				"path" : "res/scripts/test"
+			}
 		]
 	}
 	
