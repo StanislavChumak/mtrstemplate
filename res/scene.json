@@ -4,9 +4,9 @@
     "scene" : [
         {
             "Name" : "cursor",
-            "Transform" : { "pos_x" : 100, "pos_y" : 100, "rotation" : 0.0},
-            "CursorFollower" : { "offset_x" : 4, "offset_y" : 4 },
+            "Transform" : {},
             "SoundPlayer" : { "sound" : "resource/tic", "volume" : 1.0},
+            "Script" : { "script_file" : "resource/test"},
             "Sprite"  : { 
                 "shader" : "system/shader2DUI",
                 "texture": "resource/cursor",
