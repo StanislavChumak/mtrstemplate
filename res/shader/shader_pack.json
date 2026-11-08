@@ -1,0 +1,16 @@
+{
+    "pack" : {
+        "ShaderProgram" : [
+			{
+				"name"     : "shader2D",
+				"vertex"   : "vertex2D.shader",
+				"fragment" : "fragment2D.shader"
+			},
+			{
+				"name"     : "shader2DUI",
+				"vertex"   : "vertex2DUI.shader",
+				"fragment" : "fragment2D.shader"
+			}
+        ]
+    }
+}

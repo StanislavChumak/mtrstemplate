@@ -1,0 +1,43 @@
+{
+    "pack" : {
+        "Texture": [
+			{
+				"name" : "grassland",
+				"path" : "grassland.png"
+			}
+		],
+		"TextureAtlas" : [
+			{
+				"name" : "grassland_atlas",
+				"texture" : "grassland",
+				"sub_width"  : 32,
+				"sub_height" : 32
+			}
+		]
+    },
+    "scene" : [
+        {
+            "Name" : "grassland",
+            "Transform" : { "pos_y": 0, "pos_x": 16 },
+            "SpriteMap" : {
+                "shader" : "shader/shader_pack/shader2D",
+                "texture": "grassland",
+                "atlas"  : "grassland_atlas",
+                "cell_size_x" : 32,
+                "cell_size_y" : 32,
+                "cell_types"  : [0],
+                "cells"  : [
+                    [0,-4, 2],[0,-3, 2],[0,-2, 2],[0,-1, 2],[0, 0, 2],[0, 1, 2],[0, 2, 2],[0, 3, 2],
+                    [0,-4, 1],[0,-3, 1],[0,-2, 1],[0,-1, 1],[0, 0, 1],[0, 1, 1],[0, 2, 1],[0, 3, 1],
+                    [0,-4, 0],[0,-3, 0],[0,-2, 0],[0,-1, 0],[0, 0, 0],[0, 1, 0],[0, 2, 0],[0, 3, 0],
+                    [0,-4,-1],[0,-3,-1],[0,-2,-1],[0,-1,-1],[0, 0,-1],[0, 1,-1],[0, 2,-1],[0, 3,-1],
+                    [0,-4,-2],[0,-3,-2],[0,-2,-2],[0,-1,-2],[0, 0,-2],[0, 1,-2],[0, 2,-2],[0, 3,-2]
+                ]
+            },
+            "MapAnimator" : {
+                "cell_animators" : [[0, 8]],
+                "durations" : [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0,1 ]
+            }
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-#version 460 core
+#version 330 core
 
 layout(location = 0) in vec2 aVertex;
 layout(location = 1) in vec2 aUV;
@@ -9,9 +9,8 @@ layout(location = 4) in float aRotation;
 layout(location = 5) in vec2 aLbUv;
 layout(location = 6) in vec2 aRtUv;
 layout(location = 7) in vec4 aColor;
-layout(location = 8) in float aLayer;
 
-layout (std140, binding = 0) uniform GlobalMatrices
+layout(std140) uniform GlobalMatrices
 {
     mat4 projection;
     mat4 view;
@@ -28,7 +27,6 @@ void main()
     vec2 local = aVertex * aSize;
     float s = sin(aRotation), c = cos(aRotation);
     vec2 rotated = vec2(local.x * c - local.y * s, local.x * s + local.y * c);
-    vec3 world = vec3(aPosition + rotated, aLayer);
 
-    gl_Position = projection * view * vec4(world, 1.0);
+    gl_Position = projection * view * vec4(aPosition + rotated, 0.0, 1.0);
 }

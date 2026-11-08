@@ -1,0 +1,18 @@
+{
+    "pack" : {
+        "ScriptFile" : [
+            {
+				"name" : "main_logic",
+				"path" : "main.cpp"
+			}
+        ]
+	},
+    "scene": [
+        {
+            "Name": "main",
+            "ScriptCallback": {
+                "script_file": "main_logic"
+            }
+        }
+    ]
+}

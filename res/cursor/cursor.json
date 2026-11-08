@@ -1,0 +1,30 @@
+{
+    "pack" : {
+        "Texture": [
+			{
+				"name" : "cursor",
+				"path" : "cursor.png"
+			}
+		],
+        "ScriptFile" : [
+			{
+				"name" : "cursor_logic",
+				"path" : "cursor_logic.cpp"
+			}
+		]
+    },
+    "scene" : [
+        {
+            "Name" : "cursor",
+            "Transform" : {},
+            "Sprite"  : { 
+                "shader" : "shader/shader_pack/shader2DUI",
+                "texture": "cursor",
+                "size_x" : 8,
+                "size_y" : 8,
+                "layer"  : 2.0
+            },
+            "ScriptCallback" : { "script_file" : "cursor_logic" }
+        }
+    ]
+}
